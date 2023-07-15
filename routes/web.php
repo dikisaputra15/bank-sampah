@@ -22,6 +22,8 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/admin/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/admin/laporan', [App\Http\Controllers\DashboardController::class, 'laporansampah']);
+    Route::post('/admin/searchlaporan', [App\Http\Controllers\DashboardController::class, 'searchlaporan']);
     Route::get('/admin/user', [App\Http\Controllers\UserController::class, 'index']);
     Route::get('/admin/adduser', [App\Http\Controllers\UserController::class, 'adduser']);
     Route::post('/admin/storeuser', [App\Http\Controllers\UserController::class, 'storeuser']);

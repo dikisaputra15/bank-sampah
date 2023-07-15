@@ -32,6 +32,22 @@
 									</div>
 
 									<div class="row mb-3">
+										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Lokasi Bank</label>
+										<div class="col-sm-9">
+											<select class="form-control" name="lokasi">
+                                                <option value="0">-Pilih Lokasi Bank-</option>
+                                            @foreach($lokasi as $lok)
+                                                @if ($setoran->lokasi_id == $lok->id)
+                                                    <option value="{{ $lok->id }}" selected>{{ $lok->nama_bank }}</option>
+                                                @else
+                                                    <option value="{{ $lok->id }}">{{ $lok->nama_bank }}</option>
+                                                @endif
+                                            @endforeach
+                                            </select>
+										</div>
+									</div>
+
+									<div class="row mb-3">
 										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Kategori</label>
 										<div class="col-sm-9">
 											<select class="form-control" name="kategori">

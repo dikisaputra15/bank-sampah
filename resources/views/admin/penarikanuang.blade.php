@@ -42,6 +42,18 @@
 											<input type="text" name="nasabah_id" class="form-control" id="inputEmailAddress2" value="{{ $nasabah->id }}" readonly>
 										</div>
 									</div>
+						
+									<div class="row mb-3">
+										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Lokasi Bank</label>
+										<div class="col-sm-9">
+											<select class="form-control" name="lokasi">
+                                                <option value="0">-Pilih lokasi-</option>
+                                            @foreach($lokasi as $lok)
+                                                <option value="{{ $lok->id }}">{{ $lok->nama_bank }}</option>
+                                            @endforeach
+                                            </select>
+										</div>
+									</div>
 
 						<div class="row mb-3">
 										<label for="inputEmailAddress2" class="col-sm-3 col-form-label">Saldo</label>

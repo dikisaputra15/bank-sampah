@@ -23,4 +23,30 @@ class DashboardController extends Controller
 
         return $response;
     }
+
+    public function laporansampah(Request $request)
+    {
+        $lokasi = Databank::all();
+        return view('admin.laporansampah', compact('lokasi'));
+    }
+
+    public function searchlaporan(Request $request)
+    {
+        $lokasi = $request->lokasi;
+        
+        $jmlsampah = DB::table('storans')
+        ->where('storans.lokasi_id', $lokasi)
+        ->whereBetween('storans.tgl_menabung', array($request->tgl1, $request->tgl2))
+        ->sum('jml_tab_pergram');
+
+        $laporan = DB::table('storans')
+        ->join('databanks', 'storans.lokasi_id', '=', 'databanks.id')
+        ->join('kategories', 'storans.kategori_id', '=', 'kategories.id')
+        ->select('storans.*', 'databanks.nama_bank', 'kategories.kategori_sampah')
+        ->where('storans.lokasi_id', $lokasi)
+        ->whereBetween('storans.tgl_menabung', array($request->tgl1, $request->tgl2))
+        ->get();
+
+        return view('admin.hasillaporan', compact('laporan','jmlsampah'));
+    }
 }

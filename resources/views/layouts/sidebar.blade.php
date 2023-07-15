@@ -75,6 +75,14 @@
 						<div class="menu-title">Penarikan</div>
 					</a>
 				</li>
+
+				<li>
+					<a  href="{{ url('admin/laporan') }}">
+						<div class="parent-icon"><i class="bx bx-map-alt"></i>
+						</div>
+						<div class="menu-title">Laporan Sampah</div>
+					</a>
+				</li>
 				@endif
 
 				@if (auth()->user()->type == 'Nasabah')

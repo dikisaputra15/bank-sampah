@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('nasabah_id');
             $table->integer('kategori_id');
+            $table->integer('lokasi_id');
             $table->date('tgl_menabung');
             $table->integer('harga_pergram');
             $table->integer('jml_tab_pergram');

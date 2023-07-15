@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('nasabah_id');
             $table->integer('petugas_id');
+            $table->integer('lokasi_id');
             $table->date('tgl_tab');
             $table->double('kredit');
             $table->double('debit');
