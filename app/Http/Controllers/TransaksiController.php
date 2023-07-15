@@ -195,12 +195,13 @@ class TransaksiController extends Controller
         $saldo = $kredit - $debit;
 
         $tarik = DB::table('tabungans')
-        ->join('pegawais', 'tabungans.petugas_id', '=', 'pegawais.id')
-        ->join('nasabahs', 'tabungans.nasabah_id', '=', 'nasabahs.id')
-        ->select('tabungans.*', 'pegawais.nama_pegawai', 'nasabahs.nama_nasabah')
-        ->where('tabungans.nasabah_id', '=', $user_id)
+        ->where('tabungans.nasabah_id', $user_id)
         ->get();
-        
-        return view('admin.lihattabungan', compact(['nasabah','saldo','tarik']));
+
+        if($nasabah == null){
+            return view('admin.bukarek');
+        }else{
+            return view('admin.lihattabungan', compact(['nasabah','saldo','tarik']));
+        }
     }
 }
