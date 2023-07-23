@@ -12,6 +12,7 @@ class Storan extends Model
     protected $fillable = [
         'nasabah_id',
         'kategori_id',
+        'lokasi_id',
         'tgl_menabung',
         'harga_pergram',
         'jml_tab_pergram',

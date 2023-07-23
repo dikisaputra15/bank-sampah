@@ -12,6 +12,7 @@ class Tabungan extends Model
     protected $fillable = [
         'nasabah_id',
         'petugas_id',
+        'lokasi_id',
         'tgl_tab',
         'kredit',
         'debit'
