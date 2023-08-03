@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('databanks', function (Blueprint $table) {
             $table->id();
+            $table->integer('teller_id');
             $table->string('nama_bank');
             $table->date('tgl_bergabung');
             $table->string('lat');

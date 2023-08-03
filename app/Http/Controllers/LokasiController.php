@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Databank;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class LokasiController extends Controller
@@ -16,7 +17,8 @@ class LokasiController extends Controller
 
     public function addlokasi()
     {
-        return view('admin.addlokasi');
+        $teller = DB::table('users')->where('type', 1)->get();
+        return view('admin.addlokasi', compact('teller'));
     }
 
     public function storelokasi(Request $request)
@@ -34,6 +36,7 @@ class LokasiController extends Controller
         
 
         Databank::create([
+            'teller_id' => $request->teller,
             'nama_bank' => $request->nama_bank,
             'tgl_bergabung' => $request->tgl_bergabung,
             'lat' => $request->lat,
@@ -54,7 +57,8 @@ class LokasiController extends Controller
     public function editlokasi($id)
     {
         $lokasi = Databank::find($id);
-        return view('admin.editlokasi', compact(['lokasi']));
+        $users = DB::table('users')->where('type', 1)->get();
+        return view('admin.editlokasi', compact(['lokasi','users']));
     }
 
     public function updatelokasi(Request $request)
@@ -72,6 +76,7 @@ class LokasiController extends Controller
         );
         
         DB::table('databanks')->where('id',$id)->update([
+            'teller_id' => $request->teller,
             'nama_bank' => $request->nama_bank,
             'lat' => $request->lat,
             'long' => $request->long,

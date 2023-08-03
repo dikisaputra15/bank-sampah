@@ -25,6 +25,21 @@
 											<input type="text" name="id_lok" class="form-control" id="inputEnterYourName" value="{{ $lokasi->id }}">
 										</div>
 									</div>
+									<div class="row mb-3">
+										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Teller</label>
+										<div class="col-sm-9">
+											<select class="form-control" name="teller">
+													<option value="0">-Pilih Teller-</option>
+													@foreach ($users as $usr)
+													@if ($lokasi->teller_id == $usr->id)
+														<option value="{{ $usr->id }}" selected>{{ $usr->name }}</option>
+													@else
+														<option value="{{ $usr->id }}">{{ $usr->name }}</option>
+													@endif
+                                    				@endforeach
+											</select>
+										</div>
+									</div>
                                     <div class="row mb-3">
 										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Nama Bank</label>
 										<div class="col-sm-9">

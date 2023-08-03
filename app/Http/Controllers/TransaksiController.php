@@ -145,6 +145,9 @@ class TransaksiController extends Controller
 
     public function penarikanuang($id)
     {
+        $user_id = Auth::user()->id;
+        $lokasi_bank = DB::table('databanks')->where('teller_id', $user_id)->first();
+
         $lokasi = Databank::all();
         $nasabah = Nasabah::find($id);
         $id = $nasabah->user_id;
@@ -164,7 +167,7 @@ class TransaksiController extends Controller
         ->where('tabungans.nasabah_id', '=', $id)
         ->get();
        
-        return view('admin.penarikanuang', compact(['nasabah','saldo','petugas','tarik','lokasi']));
+        return view('admin.penarikanuang', compact(['nasabah','saldo','petugas','tarik','lokasi','lokasi_bank']));
     }
 
     public function tarikuang(Request $request)
@@ -175,9 +178,12 @@ class TransaksiController extends Controller
         $petugas = $request->petugas;
         $jml_tab = $request->jml_tab;
         $lokasi = $request->lokasi;
-        
+        $saldo = $request->saldo;
         $tgl_hariini = date('Y-m-d');
 
+        if($jml_tab > $saldo){
+            return redirect('admin/'."{$nasabah_id}".'/penarikanuang')->with('alert-danger','Saldo tidak cukup');
+        }else{
             Tabungan::create([
                 'nasabah_id' => $user_id,
                 'petugas_id' => $petugas,
@@ -186,6 +192,7 @@ class TransaksiController extends Controller
                 'kredit' => 0,
                 'debit' => $jml_tab
             ]);
+        }
 
         return redirect('admin/'."{$nasabah_id}".'/penarikanuang');
     }

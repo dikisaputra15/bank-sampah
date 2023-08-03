@@ -20,6 +20,17 @@
                         <form method="POST" action="{{ url('admin/storelokasi') }}" enctype="multipart/form-data">
                         @csrf
 									<div class="row mb-3">
+										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Teller</label>
+										<div class="col-sm-9">
+											<select class="form-control" name="teller">
+													<option value="0">-Pilih Teller-</option>
+												@foreach($teller as $tel)
+													<option value="{{ $tel->id }}">{{ $tel->name }}</option>
+												@endforeach
+											</select>
+										</div>
+									</div>
+									<div class="row mb-3">
 										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Nama Bank</label>
 										<div class="col-sm-9">
 											<input type="text" name="nama_bank" class="form-control" id="inputEnterYourName" placeholder="Nama Bank">

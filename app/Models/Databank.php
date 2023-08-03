@@ -10,6 +10,7 @@ class Databank extends Model
     use HasFactory;
 
     protected $fillable = [
+        'teller_id',
         'nama_bank',
         'tgl_bergabung',
         'lat',
