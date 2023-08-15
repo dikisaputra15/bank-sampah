@@ -29,6 +29,8 @@ class TransaksiController extends Controller
 
     public function pilihnasabah($id)
     {
+        $user_id = Auth::user()->id;
+        $lokasi_bank = DB::table('databanks')->where('teller_id', $user_id)->first();
         $nasabah = Nasabah::find($id);
         $user_id = $nasabah->user_id;
         $kategori = Kategorie::all();
@@ -39,7 +41,7 @@ class TransaksiController extends Controller
         ->select('storans.*', 'kategories.kategori_sampah')
         ->where('storans.nasabah_id', '=', $user_id)
         ->get();
-        return view('admin.pilihnasabah', compact(['nasabah','kategori','setoran','petugas','lokasi']));
+        return view('admin.pilihnasabah', compact(['nasabah','kategori','setoran','petugas','lokasi','lokasi_bank']));
     }
 
     public function stortabungan(Request $request)

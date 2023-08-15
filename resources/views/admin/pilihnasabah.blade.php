@@ -43,6 +43,7 @@
 										</div>
 									</div>
 
+								<?php if(auth()->user()->type == 'Admin'){ ?>
 									<div class="row mb-3">
 										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Lokasi Bank</label>
 										<div class="col-sm-9">
@@ -54,6 +55,16 @@
                                             </select>
 										</div>
 									</div>
+								<?php } ?>
+
+						<?php if(auth()->user()->type == 'Teller'){ ?>
+							<div class="row mb-3">
+								<label for="inputEmailAddress2" class="col-sm-3 col-form-label">Lokasi</label>
+								<div class="col-sm-9">
+									<input type="text" name="lokasi" class="form-control" id="inputEmailAddress2" value="{{ $lokasi_bank->nama_bank }}" readonly>
+								</div>
+							</div>
+						<?php } ?>
 
 									<div class="row mb-3">
 										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Kategori</label>
