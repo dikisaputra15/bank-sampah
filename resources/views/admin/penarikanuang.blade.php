@@ -62,7 +62,8 @@
 							<div class="row mb-3">
 								<label for="inputEmailAddress2" class="col-sm-3 col-form-label">Lokasi</label>
 								<div class="col-sm-9">
-									<input type="text" name="lokasi" class="form-control" id="inputEmailAddress2" value="{{ $lokasi_bank->nama_bank }}" readonly>
+									<input type="text" name="lokasi" class="form-control" id="inputEmailAddress2" value="{{ $lokasi_bank->id }}" hidden>
+									<input type="text" name="lokasi_front" class="form-control" id="inputEmailAddress2" value="{{ $lokasi_bank->nama_bank }}">
 								</div>
 							</div>
 						<?php } ?>
