@@ -3,7 +3,7 @@
 @section('title','Tabungan')
 
 @section('conten')
-    
+
 		<h6 class="mb-0 text-uppercase" align="center">Tabungan</h6>
         <table>
             <tr>
@@ -35,7 +35,7 @@
                </div>
             </div>
           </div>
-        
+
         </div><!--end row-->
 
 		<div class="card">
@@ -44,7 +44,7 @@
 								<table id="example2" class="table table-striped table-bordered">
 									<thead>
 										<tr>
-											<th>Tanggal Penarikan</th>
+											<th>Tanggal</th>
 											<th>Kredit</th>
 											<th>Debit</th>
 										</tr>
@@ -56,7 +56,7 @@
 											<td>{{ $tar->kredit }}</td>
 											<td>{{ $tar->debit }}</td>
 										</tr>
-									@endforeach  
+									@endforeach
 									</tbody>
 								</table>
 
