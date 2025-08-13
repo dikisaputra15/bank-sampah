@@ -28,9 +28,9 @@
 		<header class="login-header shadow">
 			<nav class="navbar navbar-expand-lg navbar-light bg-white rounded fixed-top rounded-0 shadow-sm">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="#">
+					{{-- <a class="navbar-brand" href="#">
 						<img src="{{asset('template')}}/assets/images/logo-img.png" width="140" alt="" />
-					</a>
+					</a> --}}
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent1">
