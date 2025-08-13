@@ -3,7 +3,7 @@
 @section('title','Lokasi')
 
 @section('conten')
-    
+
 		<div class="row">
 					<div class="col-xl-9 mx-auto">
 						<h6 class="mb-0 text-uppercase">Tambah Lokasi Bank</h6>
@@ -20,10 +20,10 @@
                         <form method="POST" action="{{ url('admin/storelokasi') }}" enctype="multipart/form-data">
                         @csrf
 									<div class="row mb-3">
-										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Teller</label>
+										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Petugas</label>
 										<div class="col-sm-9">
 											<select class="form-control" name="teller">
-													<option value="0">-Pilih Teller-</option>
+													<option value="0">-Pilih Petugas-</option>
 												@foreach($teller as $tel)
 													<option value="{{ $tel->id }}">{{ $tel->name }}</option>
 												@endforeach
