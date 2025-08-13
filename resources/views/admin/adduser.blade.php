@@ -3,7 +3,7 @@
 @section('title','User')
 
 @section('conten')
-    
+
 		<div class="row">
 					<div class="col-xl-9 mx-auto">
 						<h6 class="mb-0 text-uppercase">Tambah User</h6>
@@ -42,12 +42,12 @@
 										<div class="col-sm-9">
 											<select class="form-control" name="type">
                                                 <option value="0">Admin</option>
-                                                <option value="1">Teller</option>
+                                                <option value="1">Petugas</option>
                                                 <option value="2">Nasabah</option>
                                             </select>
 										</div>
 									</div>
-	
+
 									<div class="row">
 										<label class="col-sm-3 col-form-label"></label>
 										<div class="col-sm-9">

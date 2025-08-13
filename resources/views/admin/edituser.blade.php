@@ -3,7 +3,7 @@
 @section('title','edit User')
 
 @section('conten')
-    
+
 		<div class="row">
 					<div class="col-xl-9 mx-auto">
 						<h6 class="mb-0 text-uppercase">Edit User</h6>
@@ -33,18 +33,18 @@
 											<input type="email" name="email" class="form-control" id="inputEmailAddress2" value="{{ $user->email }}">
 										</div>
 									</div>
-									
+
 									<div class="row mb-3">
 										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Role</label>
 										<div class="col-sm-9">
                                         <select class="form-control" name="type">
                                             <option value="0" @if($user->type == "Admin") selected @endif>Admin</option>
-                                            <option value="1" @if($user->type == "Teller") selected @endif>Teller</option>
+                                            <option value="1" @if($user->type == "Petugas") selected @endif>Petugas</option>
                                             <option value="2" @if($user->type == "Nasabah") selected @endif>Nasabah</option>
                                         </select>
 										</div>
 									</div>
-	
+
 									<div class="row">
 										<label class="col-sm-3 col-form-label"></label>
 										<div class="col-sm-9">

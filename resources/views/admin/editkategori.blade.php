@@ -3,7 +3,7 @@
 @section('title','Edit Kategori')
 
 @section('conten')
-    
+
 		<div class="row">
 					<div class="col-xl-9 mx-auto">
 						<h6 class="mb-0 text-uppercase">Edit Kategori Sampah</h6>
@@ -27,7 +27,7 @@
 										</div>
 									</div>
 									<div class="row mb-3">
-										<label for="inputEmailAddress2" class="col-sm-3 col-form-label">Harga Pergram</label>
+										<label for="inputEmailAddress2" class="col-sm-3 col-form-label">Harga Per Kilogram</label>
 										<div class="col-sm-9">
 											<input type="number" name="harga_pergram" class="form-control" id="inputEmailAddress2" value="{{ $kategori->harga_pergram }}">
 										</div>

@@ -5,7 +5,8 @@
 					<img src="{{asset('template')}}/assets/images/logo-icon.png" class="logo-icon" alt="logo icon">
 				</div>
 				<div>
-					<h4 class="logo-text">Rocker</h4>
+					<h4 class="logo-text">BSD</h4>
+                    <p><small>(bank sampah digital)</small></p>
 				</div>
 				<div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
 				</div>
@@ -19,7 +20,7 @@
 						<div class="menu-title">Dashboard</div>
 					</a>
 				</li>
-				
+
 				@if (auth()->user()->type == 'Admin')
 				<li>
 					<a href="{{ url('admin/user') }}">
@@ -102,9 +103,9 @@
 					</a>
 				</li>
 				@endif
-				
-				
-				@if (auth()->user()->type == 'Teller')
+
+
+				@if (auth()->user()->type == 'Petugas')
 				<li>
 					<a href="{{ url('admin/setoran') }}">
 						<div class="parent-icon"><i class="bx bx-repeat"></i>
@@ -119,8 +120,8 @@
 						<div class="menu-title">Penarikan</div>
 					</a>
 				</li>
-				@endif				
-				
+				@endif
+
 			</ul>
 			<!--end navigation-->
 		</div>

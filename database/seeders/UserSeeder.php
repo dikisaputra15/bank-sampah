@@ -24,10 +24,10 @@ class UserSeeder extends Seeder
                'password'=> hash::make('admin12345'),
             ],
             [
-               'name'=>'Teller',
-               'email'=>'teller@teller.com',
+               'name'=>'Petugas',
+               'email'=>'petugas@petugas.com',
                'type'=> 1,
-               'password'=> hash::make('teller12345'),
+               'password'=> hash::make('petugas12345'),
             ],
             [
                'name'=>'Nasabah',
