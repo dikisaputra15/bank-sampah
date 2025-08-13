@@ -3,7 +3,7 @@
 @section('title','Edit Lokasi')
 
 @section('conten')
-    
+
 		<div class="row">
 					<div class="col-xl-9 mx-auto">
 						<h6 class="mb-0 text-uppercase">Edit Lokasi Bank</h6>
@@ -26,10 +26,10 @@
 										</div>
 									</div>
 									<div class="row mb-3">
-										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Teller</label>
+										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Petugas</label>
 										<div class="col-sm-9">
 											<select class="form-control" name="teller">
-													<option value="0">-Pilih Teller-</option>
+													<option value="0">-Pilih Petugas-</option>
 													@foreach ($users as $usr)
 													@if ($lokasi->teller_id == $usr->id)
 														<option value="{{ $usr->id }}" selected>{{ $usr->name }}</option>
