@@ -3,7 +3,7 @@
 @section('title','Setoran Nasabah')
 
 @section('conten')
-    
+
 		<h6 class="mb-0 text-uppercase">Setoran Nasabah</h6>
         <table>
             <tr>
@@ -35,7 +35,7 @@
 											<input type="text" name="user_id" class="form-control" id="inputEmailAddress2" value="{{ $nasabah->user_id }}">
 										</div>
 									</div>
-						
+
 									<div class="row mb-3" hidden>
 										<label for="inputEmailAddress2" class="col-sm-3 col-form-label">Nasabah Id</label>
 										<div class="col-sm-9">
@@ -48,7 +48,6 @@
 										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Lokasi Bank</label>
 										<div class="col-sm-9">
 											<select class="form-control" name="lokasi">
-                                                <option value="0">-Pilih lokasi-</option>
                                             @foreach($lokasi as $lok)
                                                 <option value="{{ $lok->id }}">{{ $lok->nama_bank }}</option>
                                             @endforeach
@@ -71,7 +70,6 @@
 										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Kategori</label>
 										<div class="col-sm-9">
 											<select class="form-control" name="kategori">
-                                                <option value="0">-Pilih Kategori-</option>
                                             @foreach($kategori as $kat)
                                                 <option value="{{ $kat->id }}">{{ $kat->kategori_sampah }}</option>
                                             @endforeach
@@ -79,7 +77,7 @@
 										</div>
 									</div>
 									<div class="row mb-3">
-										<label for="inputEmailAddress2" class="col-sm-3 col-form-label">Jumlah Tabungan (pergram)</label>
+										<label for="inputEmailAddress2" class="col-sm-3 col-form-label">Jumlah Tabungan (perkilogram)</label>
 										<div class="col-sm-9">
 											<input type="number" name="jml_tab" class="form-control" id="inputEmailAddress2">
 										</div>
@@ -89,14 +87,13 @@
 										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Petugas</label>
 										<div class="col-sm-9">
 											<select class="form-control" name="petugas">
-                                                <option value="0">-Pilih Petugas-</option>
 											@foreach($petugas as $pet)
                                                 <option value="{{ $pet->id }}">{{ $pet->nama_pegawai }}</option>
                                             @endforeach
                                             </select>
 										</div>
 									</div>
-	
+
 									<div class="row">
 										<label class="col-sm-3 col-form-label"></label>
 										<div class="col-sm-9">
@@ -116,7 +113,7 @@
 										<tr>
 											<th>Tanggal Menabung</th>
 											<th>Kategori</th>
-											<th>Harga (Pergram)</th>
+											<th>Harga (Perkilogram)</th>
 											<th>Jumlah Tabungan (Pergram)</th>
 											<th>Total Tabungan</th>
                                             <th>Action</th>
@@ -134,7 +131,7 @@
 												<a href="/admin/{{$set->id}}/editsetoran" class="btn btn-primary">Edit</a>
 											</td>
 										</tr>
-									@endforeach  
+									@endforeach
 									</tbody>
 								</table>
 					</div>

@@ -48,18 +48,18 @@ class TransaksiController extends Controller
     {
         $nasabah_id = $request->nasabah_id;
         $user_id = $request->user_id;
-        
+
         $kategori_id = $request->kategori;
         $petugas = $request->petugas;
         $jml_tab = $request->jml_tab;
         $lokasi = $request->lokasi;
-        
+
         $kategori = Kategorie::find($kategori_id);
         $harga_pergram = $kategori->harga_pergram;
-        
+
         $total_tabungan = $harga_pergram * $jml_tab;
         $tgl_hariini = date('Y-m-d');
-        
+
        $stor = Storan::create([
             'nasabah_id' => $user_id,
             'kategori_id' => $kategori_id,
@@ -114,10 +114,10 @@ class TransaksiController extends Controller
         $kategori_id = $request->kategori;
         $jml_tab = $request->jml_tab;
         $lokasi = $request->lokasi;
-        
+
         $kategori = Kategorie::find($kategori_id);
         $harga_pergram = $kategori->harga_pergram;
-        
+
         $total_tabungan = $harga_pergram * $jml_tab;
         $tgl_hariini = date('Y-m-d');
 
@@ -152,23 +152,23 @@ class TransaksiController extends Controller
 
         $lokasi = Databank::all();
         $nasabah = Nasabah::find($id);
-        $id = $nasabah->user_id;
+        $user_id = $nasabah->user_id;
         $petugas = Pegawai::all();
         $kredit = DB::table('tabungans')
-        ->where('nasabah_id', '=', $id)
+        ->where('nasabah_id', '=', $user_id)
         ->sum('kredit');
         $debit = DB::table('tabungans')
-        ->where('nasabah_id', '=', $id)
+        ->where('nasabah_id', '=', $user_id)
         ->sum('debit');
         $saldo = $kredit - $debit;
 
         $tarik = DB::table('tabungans')
-        ->join('pegawais', 'tabungans.petugas_id', '=', 'pegawais.id')
-        ->join('nasabahs', 'tabungans.nasabah_id', '=', 'nasabahs.id')
+        ->leftjoin('pegawais', 'tabungans.petugas_id', '=', 'pegawais.id')
+        ->leftjoin('nasabahs', 'tabungans.nasabah_id', '=', 'nasabahs.id')
         ->select('tabungans.*', 'pegawais.nama_pegawai', 'nasabahs.nama_nasabah')
-        ->where('tabungans.nasabah_id', '=', $id)
+        ->where('tabungans.nasabah_id', '=', $user_id)
         ->get();
-       
+
         return view('admin.penarikanuang', compact(['nasabah','saldo','petugas','tarik','lokasi','lokasi_bank']));
     }
 
@@ -202,7 +202,7 @@ class TransaksiController extends Controller
     public function lihattabungan(Request $request)
     {
         $user_id = Auth::user()->id;
-        
+
         $nasabah = DB::table('nasabahs')
         ->where('user_id', '=', $user_id)
         ->first();

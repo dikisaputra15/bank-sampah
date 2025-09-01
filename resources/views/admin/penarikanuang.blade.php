@@ -3,7 +3,7 @@
 @section('title','Penarikan Uang Nasabah')
 
 @section('conten')
-    
+
 		<h6 class="mb-0 text-uppercase">Penarikan Uang Nasabah</h6>
         <table>
             <tr>
@@ -43,13 +43,12 @@
 											<input type="text" name="nasabah_id" class="form-control" id="inputEmailAddress2" value="{{ $nasabah->id }}" readonly>
 										</div>
 									</div>
-						
+
 							<?php if(auth()->user()->type == 'Admin'){ ?>
 									<div class="row mb-3">
 										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Lokasi Bank</label>
 										<div class="col-sm-9">
 											<select class="form-control" name="lokasi">
-                                                <option value="0">-Pilih lokasi-</option>
                                             @foreach($lokasi as $lok)
                                                 <option value="{{ $lok->id }}">{{ $lok->nama_bank }}</option>
                                             @endforeach
@@ -81,19 +80,18 @@
 											<input type="number" name="jml_tab" class="form-control" id="inputEmailAddress2">
 										</div>
 									</div>
-						
+
 									<div class="row mb-3">
 										<label for="inputEnterYourName" class="col-sm-3 col-form-label">Petugas</label>
 										<div class="col-sm-9">
 											<select class="form-control" name="petugas">
-                                                <option value="0">-Pilih Petugas-</option>
 											@foreach($petugas as $pet)
                                                 <option value="{{ $pet->id }}">{{ $pet->nama_pegawai }}</option>
                                             @endforeach
                                             </select>
 										</div>
 									</div>
-	
+
 									<div class="row">
 										<label class="col-sm-3 col-form-label"></label>
 										<div class="col-sm-9">
@@ -125,7 +123,7 @@
 											<td>{{ $tar->debit }}</td>
 											<td>{{ $tar->nama_pegawai }}</td>
 										</tr>
-									@endforeach  
+									@endforeach
 									</tbody>
 								</table>
 								<h5>Saldo : <?php echo $saldo; ?></h5>
